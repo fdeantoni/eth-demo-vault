@@ -16,14 +16,17 @@ The Wei equivalent of the base price is calculated using the [Chainlink Oracle](
 
 ## Prerequisites ##
 
-To use it, you will need to have MetaMask installed, and an infura.io project as
-we will be using the Kovan testnet.
+To use it, you will need to have [MetaMask](https://metamask.io) installed, and
+an [infura.io](https://infura.io) project as we will be using the Kovan testnet.
+
+After setting up MetaMask and your Infura project, fund your MetaMask wallet with
+some Kovan Eth (kETH). You can do that using the [Kovan Faucet](https://faucet.kovan.network).
 
 ## Set Up Accounts ##
 
 In your MetaMask wallet you will need two accounts. After installing you will
 already have 1 account. Simply add another one via the UI. After creating this
-account, send some eth (e.g. 0.5) to this second account.
+account, send some kETH (e.g. 0.5) to this second account.
 
 ## Configure ##
 
