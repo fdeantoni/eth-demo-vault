@@ -12,7 +12,7 @@ The contract has the following functionality:
 * Base price of a key is USD 100
 * Purchase price is Wei equivalent of base price at time of purchase
 
-The Wei equivalent of the base price is calculated using the [Chainlink Oracle](https://data.chain.link/). 
+The Wei equivalent of the base price is calculated using the [Chainlink Oracle](https://data.chain.link/).
 
 ## Prerequisites ##
 
@@ -24,6 +24,16 @@ we will be using the Kovan testnet.
 In your MetaMask wallet you will need two accounts. After installing you will
 already have 1 account. Simply add another one via the UI. After creating this
 account, send some eth (e.g. 0.5) to this second account.
+
+## Configure ##
+
+Create an `.env` file at the project root with the following:
+```env
+MNEMONIC="<your metamask recovery phrase>"
+INFURA_PROJECT="<your infura project key for kovan network>"
+```
+
+Make sure to set `MNEMONIC` and `INFURA_PROJECT` appropriately.
 
 ## Upload Contracts to Kovan Testnet ##
 
