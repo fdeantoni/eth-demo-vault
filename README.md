@@ -2,12 +2,22 @@
 
 This is a simple demo ethereum contract that allows the contract owner to store
 IP addresses which they can then use to grant access to one of their applications
-(see eth-demo-api). 
+(see eth-demo-api).
+
+The contract has the following functionality:
+* Hold a 'vault' of keys
+* Contract owner can add new keys
+* Contract owner can invalidate keys
+* Anyone else can purchse a key
+* Base price of a key is USD 100
+* Purchase price is Wei equivalent of base price at time of purchase
+
+The Wei equivalent of the base price is calculated using the [Chainlink Oracle](https://data.chain.link/). 
 
 ## Prerequisites ##
 
 To use it, you will need to have MetaMask installed, and an infura.io project as
-we will be using the Kovan testnet. 
+we will be using the Kovan testnet.
 
 ## Set Up Accounts ##
 
@@ -37,10 +47,16 @@ $ truffle console --network kovan
 
 Once in the console, you can work with the contract as follows:
 ```js
+// Get contract instance
 let vault = await LicenseVault.deployed();
+// Let contract owner (account[0]) add a new key for account[1]
+await vault.add("192.168.1.1", accounts[1], { from: accounts[0] });
+// Check if now valid
+await vault.isValid("192.168.1.1");
+// Retrieve the price (USD 100) in Wei using latest exchange rate
 let price = await vault.getPrice();
-await vault.add("127.0.0.1", accounts[1], { from: accounts[0] });
+// Purchuse the key using account[1] with latest price
+await vault.purchase("127.0.0.1", { from: accounts[1], value: price });
+// Check if now valid
 await vault.isValid("127.0.0.1");
 ```
-
-
